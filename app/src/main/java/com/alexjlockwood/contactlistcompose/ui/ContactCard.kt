@@ -6,7 +6,7 @@ import androidx.compose.foundation.Icon
 import androidx.compose.foundation.Text
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.aspectRatio
-import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.preferredSize
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.Card
 import androidx.compose.material.icons.Icons
@@ -68,14 +68,14 @@ fun ContactCard(
 private fun RoundedCoilImage(imageUrl: String, modifier: Modifier = Modifier) {
     CoilImage(
         data = imageUrl,
-        modifier = modifier.size(48.dp).clip(CircleShape),
+        modifier = modifier.preferredSize(48.dp).clip(CircleShape),
         fadeIn = true,
     )
 }
 
 @Composable
 private fun VectorIcon(asset: VectorAsset, modifier: Modifier = Modifier) {
-    Icon(asset = asset, modifier = modifier.size(48.dp))
+    Icon(asset = asset, modifier = modifier.preferredSize(48.dp))
 }
 
 @Composable
