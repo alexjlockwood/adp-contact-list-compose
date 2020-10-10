@@ -20,8 +20,8 @@ import androidx.compose.ui.util.lerp
 
 @Composable
 fun ExpandableChevron(
-    isExpanded: Boolean,
     modifier: Modifier = Modifier,
+    isExpanded: Boolean = false,
     color: Color = contentColor(),
 ) {
     val animatedProgress = animatedFloat(0f)
@@ -76,7 +76,7 @@ private fun lerp(
                 lerp(from.y, to.y, t),
             )
         } else {
-            // We only support MoveTo and LineTo commands for brevity.
+            // We only support MoveTo and LineTo commands in this demo for brevity.
             throw IllegalStateException("Unsupported SVG PathNode command")
         }
     }

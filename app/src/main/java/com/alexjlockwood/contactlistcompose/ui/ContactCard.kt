@@ -29,34 +29,26 @@ fun ContactCard(
     modifier: Modifier = Modifier,
     isExpanded: Boolean = false,
 ) {
-    Card(
-        modifier = modifier,
-        elevation = 2.dp,
-    ) {
+    Card(modifier = modifier, elevation = 2.dp) {
         Column {
-            CoilImage(
-                data = contact.imageUrl,
-                modifier = Modifier.aspectRatio(16f / 9f),
-                fadeIn = true,
-                contentScale = ContentScale.Crop,
-            )
+            HeaderCoilImage(imageUrl = contact.imageUrl)
             ContactListItem(
-                startIcon = { RoundedCoilImage(imageUrl = contact.imageUrl) },
                 text = { SingleLineText(text = contact.name) },
                 detailText = { SingleLineText(text = contact.description) },
-                endIcon = { ExpandableChevron(isExpanded) },
+                startIcon = { RoundedCoilImage(imageUrl = contact.imageUrl) },
+                endIcon = { ExpandableChevron(isExpanded = isExpanded) },
             )
             AnimatedVisibility(visible = isExpanded) {
                 Column {
                     ContactListItem(
-                        startIcon = { VectorIcon(asset = Icons.Filled.Phone) },
                         text = { SingleLineText(text = contact.phoneNumber) },
                         detailText = { SingleLineText(text = contact.phoneNumberType) },
+                        startIcon = { VectorIcon(asset = Icons.Filled.Phone) },
                     )
                     ContactListItem(
-                        startIcon = { VectorIcon(asset = Icons.Filled.Email) },
                         text = { SingleLineText(text = contact.email) },
                         detailText = { SingleLineText(text = contact.emailType) },
+                        startIcon = { VectorIcon(asset = Icons.Filled.Email) },
                     )
                 }
             }
@@ -65,11 +57,22 @@ fun ContactCard(
 }
 
 @Composable
+private fun HeaderCoilImage(imageUrl: String, modifier: Modifier = Modifier) {
+    CoilImage(
+        data = imageUrl,
+        modifier = modifier.aspectRatio(16f / 9f),
+        fadeIn = true,
+        contentScale = ContentScale.Crop,
+    )
+}
+
+@Composable
 private fun RoundedCoilImage(imageUrl: String, modifier: Modifier = Modifier) {
     CoilImage(
         data = imageUrl,
         modifier = modifier.preferredSize(48.dp).clip(CircleShape),
         fadeIn = true,
+        contentScale = ContentScale.Crop,
     )
 }
 

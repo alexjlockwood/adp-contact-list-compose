@@ -12,36 +12,43 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 
+/**
+ * A simple ListItem class that displays text, detail text, a start icon,
+ * and an optional end icon.
+ */
 @Composable
 fun ContactListItem(
+    text: @Composable (() -> Unit),
     modifier: Modifier = Modifier,
-    startIcon: @Composable () -> Unit,
-    text: @Composable () -> Unit,
-    detailText: @Composable () -> Unit,
+    detailText: @Composable (() -> Unit)? = null,
+    startIcon: @Composable (() -> Unit)? = null,
     endIcon: @Composable (() -> Unit)? = null,
 ) {
     Row(modifier = modifier.preferredHeightIn(min = 64.dp)) {
         Spacer(modifier = Modifier.width(16.dp))
 
-        Box(modifier = Modifier.align(Alignment.CenterVertically)) {
-            startIcon()
+        if (startIcon != null) {
+            Box(modifier = Modifier.align(Alignment.CenterVertically)) {
+                startIcon()
+            }
+            Spacer(modifier = Modifier.width(16.dp))
         }
 
-        Spacer(modifier = Modifier.width(16.dp))
-
         Column(modifier = Modifier.align(Alignment.CenterVertically)) {
-            applyTextStyle(
-                emphasis = EmphasisAmbient.current.high,
+            provideTextStyleWithEmphasis(
                 textStyle = MaterialTheme.typography.subtitle1,
+                emphasis = EmphasisAmbient.current.high,
             ) {
                 text()
             }
 
-            applyTextStyle(
-                emphasis = EmphasisAmbient.current.medium,
-                textStyle = MaterialTheme.typography.body2,
-            ) {
-                detailText()
+            if (detailText != null) {
+                provideTextStyleWithEmphasis(
+                    textStyle = MaterialTheme.typography.body2,
+                    emphasis = EmphasisAmbient.current.medium,
+                ) {
+                    detailText()
+                }
             }
         }
 
@@ -54,11 +61,15 @@ fun ContactListItem(
     }
 }
 
+/**
+ * Helper function that provides a default [textStyle] and [emphasis]
+ * to the given composable [children].
+ */
 @Composable
-private fun applyTextStyle(
-    emphasis: Emphasis,
+private fun provideTextStyleWithEmphasis(
     textStyle: TextStyle,
-    children: @Composable (() -> Unit),
+    emphasis: Emphasis,
+    children: @Composable () -> Unit,
 ) {
     ProvideEmphasis(emphasis) {
         ProvideTextStyle(textStyle, children)
