@@ -31,11 +31,11 @@ fun ContactCard(
 ) {
     Card(modifier = modifier, elevation = 2.dp) {
         Column {
-            HeaderCoilImage(imageUrl = contact.imageUrl)
+            HeaderImage(imageUrl = contact.imageUrl)
             ContactListItem(
                 text = { SingleLineText(text = contact.name) },
                 detailText = { SingleLineText(text = contact.description) },
-                startIcon = { RoundedCoilImage(imageUrl = contact.imageUrl) },
+                startIcon = { StartImage(imageUrl = contact.imageUrl) },
                 endIcon = { ExpandableChevron(isExpanded = isExpanded) },
             )
             AnimatedVisibility(visible = isExpanded) {
@@ -43,12 +43,12 @@ fun ContactCard(
                     ContactListItem(
                         text = { SingleLineText(text = contact.phoneNumber) },
                         detailText = { SingleLineText(text = contact.phoneNumberType) },
-                        startIcon = { VectorIcon(asset = Icons.Filled.Phone) },
+                        startIcon = { StartIcon(asset = Icons.Filled.Phone) },
                     )
                     ContactListItem(
                         text = { SingleLineText(text = contact.email) },
                         detailText = { SingleLineText(text = contact.emailType) },
-                        startIcon = { VectorIcon(asset = Icons.Filled.Email) },
+                        startIcon = { StartIcon(asset = Icons.Filled.Email) },
                     )
                 }
             }
@@ -57,7 +57,7 @@ fun ContactCard(
 }
 
 @Composable
-private fun HeaderCoilImage(imageUrl: String, modifier: Modifier = Modifier) {
+private fun HeaderImage(imageUrl: String, modifier: Modifier = Modifier) {
     CoilImage(
         data = imageUrl,
         modifier = modifier.aspectRatio(16f / 9f),
@@ -67,7 +67,7 @@ private fun HeaderCoilImage(imageUrl: String, modifier: Modifier = Modifier) {
 }
 
 @Composable
-private fun RoundedCoilImage(imageUrl: String, modifier: Modifier = Modifier) {
+private fun StartImage(imageUrl: String, modifier: Modifier = Modifier) {
     CoilImage(
         data = imageUrl,
         modifier = modifier.preferredSize(48.dp).clip(CircleShape),
@@ -77,7 +77,7 @@ private fun RoundedCoilImage(imageUrl: String, modifier: Modifier = Modifier) {
 }
 
 @Composable
-private fun VectorIcon(asset: VectorAsset, modifier: Modifier = Modifier) {
+private fun StartIcon(asset: VectorAsset, modifier: Modifier = Modifier) {
     Icon(asset = asset, modifier = modifier.preferredSize(48.dp))
 }
 

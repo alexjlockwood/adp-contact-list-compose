@@ -14,18 +14,17 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.alexjlockwood.contactlistcompose.domain.Contact
 
+/**
+ * Displays a recyclable list of expandable [ContactCard]s.
+ */
 @ExperimentalAnimationApi
 @Composable
-fun ContactList(
-    contacts: List<Contact>,
-    modifier: Modifier = Modifier,
-    contentPadding: PaddingValues = PaddingValues(0.dp),
-) {
+fun ContactList(contacts: List<Contact>, modifier: Modifier = Modifier) {
     val expandedContactsMap = remember { mutableStateMapOf<String, Boolean>() }
     LazyColumnForIndexed(
         items = contacts,
         modifier = modifier,
-        contentPadding = contentPadding,
+        contentPadding = PaddingValues(16.dp),
     ) { index, contact ->
         val isContactExpanded = expandedContactsMap[contact.id] ?: false
         ContactCard(

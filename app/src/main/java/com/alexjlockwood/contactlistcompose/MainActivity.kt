@@ -3,7 +3,6 @@ package com.alexjlockwood.contactlistcompose
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.animation.ExperimentalAnimationApi
-import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.ui.platform.setContent
 import com.alexjlockwood.contactlistcompose.domain.CONTACT_LIST
@@ -16,7 +15,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             AppTheme {
-                Surface(color = MaterialTheme.colors.background) {
+                Surface {
                     ContactListScreen(contacts = CONTACT_LIST)
                 }
             }
