@@ -3,7 +3,6 @@ package com.alexjlockwood.contactlistcompose.ui
 import androidx.compose.animation.animatedFloat
 import androidx.compose.foundation.Icon
 import androidx.compose.foundation.contentColor
-import androidx.compose.foundation.layout.preferredSize
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.onCommit
 import androidx.compose.runtime.remember
@@ -61,7 +60,7 @@ fun ExpandableChevron(
                 fill = SolidColor(color),
             )
         },
-        modifier = modifier.preferredSize(48.dp),
+        modifier = modifier,
     )
 }
 
