@@ -19,22 +19,33 @@ import com.alexjlockwood.contactlistcompose.domain.Contact
  */
 @ExperimentalAnimationApi
 @Composable
-fun ContactList(contacts: List<Contact>, modifier: Modifier = Modifier) {
+fun ContactList(
+    contacts: List<Contact>,
+    modifier: Modifier = Modifier,
+    contentPadding: PaddingValues = PaddingValues(0.dp)
+) {
+    // Remember a mutable state map of contact IDs to a boolean tracking
+    // their card's current expanded state.
     val expandedContactsMap = remember { mutableStateMapOf<String, Boolean>() }
     LazyColumnForIndexed(
         items = contacts,
         modifier = modifier,
-        contentPadding = PaddingValues(16.dp),
+        contentPadding = contentPadding,
     ) { index, contact ->
-        val isContactExpanded = expandedContactsMap[contact.id] ?: false
+        // Obtain this contact's current expanded state.
+        val isContactCardExpanded = expandedContactsMap[contact.id] ?: false
         ContactCard(
             contact = contact,
             modifier = Modifier
                 .fillMaxWidth()
-                .clickable(onClick = { expandedContactsMap[contact.id] = !isContactExpanded }),
-            isExpanded = isContactExpanded,
+                .clickable(onClick = {
+                    // Toggle the card's expanded state each time it is clicked.
+                    expandedContactsMap[contact.id] = !isContactCardExpanded
+                }),
+            isExpanded = isContactCardExpanded,
         )
         if (index < contacts.size - 1) {
+            // Add a bottom margin beneath every card except the last.
             Spacer(modifier = Modifier.height(16.dp))
         }
     }

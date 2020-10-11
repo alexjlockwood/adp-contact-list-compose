@@ -2,12 +2,13 @@ package com.alexjlockwood.contactlistcompose.ui
 
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.foundation.Text
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Scaffold
 import androidx.compose.material.TopAppBar
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
 import com.alexjlockwood.contactlistcompose.R
 import com.alexjlockwood.contactlistcompose.domain.Contact
 
@@ -16,9 +17,8 @@ import com.alexjlockwood.contactlistcompose.domain.Contact
  */
 @ExperimentalAnimationApi
 @Composable
-fun ContactListScreen(contacts: List<Contact>, modifier: Modifier = Modifier) {
+fun ContactListScreen(contacts: List<Contact>) {
     Scaffold(
-        modifier = modifier,
         topBar = {
             TopAppBar(
                 title = { Text(stringResource(R.string.app_name)) },
@@ -26,6 +26,9 @@ fun ContactListScreen(contacts: List<Contact>, modifier: Modifier = Modifier) {
             )
         },
     ) {
-        ContactList(contacts = contacts)
+        ContactList(
+            contacts = contacts,
+            contentPadding = PaddingValues(16.dp),
+        )
     }
 }
