@@ -22,6 +22,7 @@ val CONTACT_LIST = arrayOfNulls<Contact>(20).map {
         phoneNumberType = "Mobile",
         email = "alex@gmail.com",
         emailType = "Work",
-        imageUrl = "https://i.imgur.com/V00qvM4.jpg",
+        imageUrl = "https://i.imgur.com/FMtnN6X.jpg",
+        //imageUrl = "https://i.imgur.com/V00qvM4.jpg",
     )
 }

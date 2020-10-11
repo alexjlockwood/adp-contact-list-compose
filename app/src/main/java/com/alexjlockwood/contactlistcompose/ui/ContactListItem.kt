@@ -6,9 +6,10 @@ import androidx.compose.foundation.Text
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.preferredHeightIn
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.material.EmphasisAmbient
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.ProvideEmphasis
@@ -22,8 +23,7 @@ import androidx.compose.ui.unit.dp
 import androidx.ui.tooling.preview.Preview
 
 /**
- * A simple ListItem that displays text, detail text, a start icon,
- * and an optional end icon.
+ * A simple ListItem that displays text, detail text, a start icon, and an optional end icon.
  */
 @Composable
 fun ContactListItem(
@@ -33,13 +33,16 @@ fun ContactListItem(
     startIcon: @Composable (() -> Unit)? = null,
     endIcon: @Composable (() -> Unit)? = null,
 ) {
-    // Render a horizontal row of items with a min height of 64dp and 16dp horizontal padding.
-    Row(modifier = modifier.preferredHeightIn(min = 64.dp).padding(horizontal = 16.dp)) {
+    // Render a horizontal row of items with a min height of 64dp.
+    Row(modifier = modifier.preferredHeightIn(min = 64.dp)) {
+        Spacer(modifier = Modifier.width(16.dp))
+
         // If specified, center the start icon vertically at the start of the list item.
         if (startIcon != null) {
-            Box(modifier = Modifier.align(Alignment.CenterVertically).padding(end = 16.dp)) {
+            Box(modifier = Modifier.align(Alignment.CenterVertically)) {
                 startIcon()
             }
+            Spacer(modifier = Modifier.width(16.dp))
         }
 
         // Render the text and detail text vertically within the list item.
@@ -69,6 +72,8 @@ fun ContactListItem(
                 endIcon()
             }
         }
+
+        Spacer(modifier = Modifier.width(16.dp))
     }
 }
 

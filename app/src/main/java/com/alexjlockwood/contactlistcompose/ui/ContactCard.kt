@@ -29,7 +29,7 @@ fun ContactCard(
     modifier: Modifier = Modifier,
     isExpanded: Boolean = false,
 ) {
-    Card(modifier = modifier) {
+    Card(modifier = modifier, elevation = 2.dp) {
         Column {
             HeaderImage(imageUrl = contact.imageUrl)
             ContactListItem(
