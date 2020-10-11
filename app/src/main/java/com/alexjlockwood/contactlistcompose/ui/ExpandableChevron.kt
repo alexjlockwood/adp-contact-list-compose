@@ -54,7 +54,6 @@ fun ExpandableChevron(
     )
 }
 
-
 /**
  * Linearly interpolates two lists of path nodes to simulate path morphing.
  */
