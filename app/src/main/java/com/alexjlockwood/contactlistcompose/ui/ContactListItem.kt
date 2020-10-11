@@ -22,9 +22,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.ui.tooling.preview.Preview
 
-/**
- * A simple ListItem that displays text, detail text, a start icon, and an optional end icon.
- */
 @Composable
 fun ContactListItem(
     text: @Composable () -> Unit,
