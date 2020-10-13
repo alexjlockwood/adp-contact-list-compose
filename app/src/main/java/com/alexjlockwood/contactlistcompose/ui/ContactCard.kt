@@ -20,7 +20,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.alexjlockwood.contactlistcompose.domain.Contact
-import dev.chrisbanes.accompanist.coil.CoilImage
+import dev.chrisbanes.accompanist.picasso.PicassoImage
 
 @ExperimentalAnimationApi
 @Composable
@@ -58,7 +58,7 @@ fun ContactCard(
 
 @Composable
 private fun HeaderImage(imageUrl: String, modifier: Modifier = Modifier) {
-    CoilImage(
+    PicassoImage(
         data = imageUrl,
         modifier = modifier.aspectRatio(16f / 9f),
         fadeIn = true,
@@ -68,7 +68,7 @@ private fun HeaderImage(imageUrl: String, modifier: Modifier = Modifier) {
 
 @Composable
 private fun StartImage(imageUrl: String, modifier: Modifier = Modifier) {
-    CoilImage(
+    PicassoImage(
         data = imageUrl,
         modifier = modifier.preferredSize(48.dp).clip(CircleShape),
         fadeIn = true,
