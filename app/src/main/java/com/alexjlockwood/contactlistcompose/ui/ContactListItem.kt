@@ -10,7 +10,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.preferredHeightIn
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.material.EmphasisAmbient
+import androidx.compose.material.AmbientEmphasisLevels
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.ProvideEmphasis
 import androidx.compose.material.Surface
@@ -44,7 +44,7 @@ fun ContactListItem(
 
         // Render the text and detail text vertically within the list item.
         Column(modifier = Modifier.align(Alignment.CenterVertically).weight(1f)) {
-            ProvideEmphasis(EmphasisAmbient.current.high) {
+            ProvideEmphasis(AmbientEmphasisLevels.current.high) {
                 ProvideTextStyle(MaterialTheme.typography.subtitle1) {
                     // If not explicitly set by the caller, apply a high-emphasis,
                     // subtitle1 text style to the text.
@@ -53,7 +53,7 @@ fun ContactListItem(
             }
 
             if (detailText != null) {
-                ProvideEmphasis(EmphasisAmbient.current.medium) {
+                ProvideEmphasis(AmbientEmphasisLevels.current.medium) {
                     ProvideTextStyle(MaterialTheme.typography.body2) {
                         // If not explicitly set by the caller, apply a medium-emphasis,
                         // body2 text style to the text.
