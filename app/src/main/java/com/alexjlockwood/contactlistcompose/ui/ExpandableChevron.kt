@@ -1,8 +1,8 @@
 package com.alexjlockwood.contactlistcompose.ui
 
 import androidx.compose.animation.animatedFloat
+import androidx.compose.foundation.AmbientContentColor
 import androidx.compose.foundation.Icon
-import androidx.compose.foundation.contentColor
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.onCommit
 import androidx.compose.runtime.remember
@@ -23,7 +23,7 @@ import androidx.compose.ui.util.lerp
 fun ExpandableChevron(
     modifier: Modifier = Modifier,
     isExpanded: Boolean = false,
-    color: Color = contentColor(),
+    color: Color = AmbientContentColor.current,
 ) {
     // Create an AnimatedFloat with an initial value of 0f.
     val animatedProgress = animatedFloat(0f)
