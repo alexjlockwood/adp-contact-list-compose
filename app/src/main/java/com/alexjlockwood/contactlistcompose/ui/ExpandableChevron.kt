@@ -34,6 +34,7 @@ fun ExpandableChevron(
     }
 
     // The SVG path data strings for the collapsed and expanded chevron icon respectively.
+    // Path morphing animation generated using https://shapeshifter.design
     val collapsedPathData = "M 12 13.17 L 7.41 8.59 L 6 10 L 12 16 L 18 10 L 16.59 8.59 L 12 13.17"
     val expandedPathData = "M 12 8 L 6 14 L 7.41 15.41 L 12 10.83 L 16.59 15.41 L 18 14 L 12 8"
 
