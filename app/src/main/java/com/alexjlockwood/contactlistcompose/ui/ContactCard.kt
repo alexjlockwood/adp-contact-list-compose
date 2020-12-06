@@ -2,27 +2,27 @@ package com.alexjlockwood.contactlistcompose.ui
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.ExperimentalAnimationApi
-import androidx.compose.foundation.Icon
-import androidx.compose.foundation.Text
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.preferredSize
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.Card
+import androidx.compose.material.Icon
+import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.Phone
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.vector.VectorAsset
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.alexjlockwood.contactlistcompose.domain.Contact
 import dev.chrisbanes.accompanist.coil.CoilImage
 
-@ExperimentalAnimationApi
+@OptIn(ExperimentalAnimationApi::class)
 @Composable
 fun ContactCard(
     contact: Contact,
@@ -77,8 +77,8 @@ private fun StartImage(imageUrl: String, modifier: Modifier = Modifier) {
 }
 
 @Composable
-private fun StartIcon(asset: VectorAsset, modifier: Modifier = Modifier) {
-    Icon(asset = asset, modifier = modifier.preferredSize(48.dp))
+private fun StartIcon(asset: ImageVector, modifier: Modifier = Modifier) {
+    Icon(imageVector = asset, modifier = modifier.preferredSize(48.dp))
 }
 
 @Composable

@@ -1,10 +1,9 @@
 package com.alexjlockwood.contactlistcompose.ui
 
-import androidx.compose.animation.ExperimentalAnimationApi
-import androidx.compose.foundation.Text
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Scaffold
+import androidx.compose.material.Text
 import androidx.compose.material.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.stringResource
@@ -15,7 +14,6 @@ import com.alexjlockwood.contactlistcompose.domain.Contact
 /**
  * The home screen of the application that displays a [TopAppBar] and the [ContactList].
  */
-@ExperimentalAnimationApi
 @Composable
 fun ContactListScreen(contacts: List<Contact>) {
     Scaffold(

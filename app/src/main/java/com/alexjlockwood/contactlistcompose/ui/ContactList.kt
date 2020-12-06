@@ -1,6 +1,5 @@
 package com.alexjlockwood.contactlistcompose.ui
 
-import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
@@ -17,7 +16,6 @@ import com.alexjlockwood.contactlistcompose.domain.Contact
 /**
  * Displays a recyclable list of expandable [ContactCard]s.
  */
-@ExperimentalAnimationApi
 @Composable
 fun ContactList(
     contacts: List<Contact>,

@@ -1,8 +1,8 @@
 package com.alexjlockwood.contactlistcompose.ui
 
 import androidx.compose.animation.animatedFloat
-import androidx.compose.foundation.AmbientContentColor
-import androidx.compose.foundation.Icon
+import androidx.compose.material.AmbientContentColor
+import androidx.compose.material.Icon
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.onCommit
 import androidx.compose.runtime.remember
@@ -11,8 +11,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.graphics.vector.Path
 import androidx.compose.ui.graphics.vector.PathNode
-import androidx.compose.ui.graphics.vector.VectorPainter
 import androidx.compose.ui.graphics.vector.addPathNodes
+import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.util.lerp
 
@@ -50,7 +50,7 @@ fun ExpandableChevron(
 
     // Draw the chevron icon using the morphed path nodes.
     Icon(
-        painter = VectorPainter(
+        painter = rememberVectorPainter(
             defaultWidth = 24.dp,
             defaultHeight = 24.dp,
             viewportWidth = 24f,
